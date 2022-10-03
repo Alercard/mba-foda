@@ -1,0 +1,18 @@
+.Option {
+    display: grid;
+    justify-items: center;
+    border: solid 1px;
+}
+
+.Option.interno {
+    background-color: rgb(255, 254, 220);
+}
+.Option.externo {
+    background-color: rgb(220, 222, 255);
+}
+.Option.resultados {
+    background-color: rgb(166, 255, 222);
+}
+.Option.imprimir {
+    background-color: rgb(255, 205, 153);
+}

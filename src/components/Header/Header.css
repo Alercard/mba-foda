@@ -1,0 +1,15 @@
+.Header {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.Header-input {
+    display: flex;
+    flex-direction: row;
+    padding: 3px;
+    margin: 3px;
+}
+
+.Header-input input {
+    width: 100%;
+}

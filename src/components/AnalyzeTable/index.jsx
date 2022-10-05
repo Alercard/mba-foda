@@ -74,9 +74,9 @@ const AnalyzeTable = ({data, handleAdd, handleDelete, handleFieldUpdate, evaluat
             <tfoot>
                 <tr>
                     <th colSpan={3}></th>
-                    <th>{ `${(dataTotalScale+0.00000001).toFixed(2)}/${(maxHeight+0.00000001).toFixed(2)}` }</th>
+                    <th>{ `${(dataTotalScale+0.00000001).toFixed(2)} / ${(maxHeight+0.00000001).toFixed(2)}` }</th>
                     <th></th>
-                    <th>{dataTotalValue}</th>
+                    <th>{dataTotalValue.toFixed(2)}</th>
                 </tr>                    
             </tfoot>
         </table>

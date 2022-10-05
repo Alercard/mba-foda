@@ -2,7 +2,7 @@ import './Analyze.css';
 import { get } from "immutable";
 import { useDispatch, useSelector } from "react-redux";
 import { DATA_TYPE_FODA, DATA_TYPE_GROUP, MAX_HEIGHT_FODA } from "../../core/analyzeConstants";
-import { IconStarsDownIntense, IconStarsDownMedium, IconStarsUpHigh, IconStarsUpMedium } from "../Icons";
+import { IconEFE, IconEFI, IconStarsDownIntense, IconStarsDownMedium, IconStarsUpHigh, IconStarsUpMedium, IconThumbDown, IconThumbUp } from "../Icons";
 import { deleteAmenaza, deleteDebilidad, deleteFortaleza, deleteOportunidad, setAmenazas, setDebilidades, setFortalezas, setOportunidades, updateAmenaza, updateDebilidad, updateFortaleza, updateOportunidad } from '../../actions';
 import { generateNewRegister } from '../../core/analyze';
 import AnalyzeTable from '../AnalyzeTable';
@@ -56,25 +56,37 @@ const Analyze = ({ type }) => {
         {value: 1, label: <IconStarsDownIntense />}
     ]
 
+    const logoHeader = type === DATA_TYPE_GROUP.EFI ?
+                        <IconEFI /> :
+                        <IconEFE />
+
     return (
         <div className={`Analyze ${type}`}>
-            {type}
-            <AnalyzeTable
-                data={upData} 
-                handleAdd={handleAddUp} 
-                handleDelete={handleDeleteUp}
-                handleFieldUpdate={handleFieldUpdateUp} 
-                evaluationOptions={upOptions}
-                maxHeight={maxHeightUp}
-            />
-            <AnalyzeTable
-                data={downData} 
-                handleAdd={handleAddDown} 
-                handleDelete={handleDeleteDown}
-                handleFieldUpdate={handleFieldUpdateDown} 
-                evaluationOptions={downOptions}
-                maxHeight={maxHeightDown}
-            />
+            <div className='container'>
+                {logoHeader}
+            </div>
+            <div className='container up'>
+                <IconThumbUp />
+                <AnalyzeTable
+                    data={upData} 
+                    handleAdd={handleAddUp} 
+                    handleDelete={handleDeleteUp}
+                    handleFieldUpdate={handleFieldUpdateUp} 
+                    evaluationOptions={upOptions}
+                    maxHeight={maxHeightUp}
+                />
+            </div>
+            <div className='container down'>
+                <IconThumbDown />
+                <AnalyzeTable
+                    data={downData} 
+                    handleAdd={handleAddDown} 
+                    handleDelete={handleDeleteDown}
+                    handleFieldUpdate={handleFieldUpdateDown} 
+                    evaluationOptions={downOptions}
+                    maxHeight={maxHeightDown}
+                />
+            </div>
         </div>
     );
 }

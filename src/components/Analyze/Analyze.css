@@ -3,7 +3,6 @@ table {
 }
 
 table thead tr {
-    background-color: rgb(49, 27, 128);
     color: white;
 }
 table thead tr th {
@@ -15,9 +14,7 @@ table thead tr th .Icon {
 }
 
 table tfoot {
-    background-color: rgb(128, 27, 37);
-    color: white;
-    text-align: right;
+    text-align: center;
 }
 
 table tfoot tr th,
@@ -31,3 +28,39 @@ td.NoData .IconAction {
     display: flex;
     justify-content: center;
 }
+
+.Analyze .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
+
+.Analyze .container.up {
+    border: solid 2px;
+    background-color: rgb(207, 244, 186);
+    color: rgb(4, 126, 6);
+}
+
+.Analyze .container.down {
+    border: solid 2px;
+    background-color: rgb(244, 197, 186);
+    color: rgb(183, 23, 2);
+}
+.Analyze .container.down .Icon.Icon-thumb-down,
+.Analyze .container.up .Icon.Icon-thumb-up {
+    width: 2rem;
+}
+
+.Analyze .container.up table thead tr,
+.Analyze .container.up table tfoot tr {
+    background-color: rgb(1, 93, 3);
+    color: white;
+}
+.Analyze .container.down table thead tr,
+.Analyze .container.down table tfoot tr {
+    background-color: rgb(128, 27, 37);
+    color: white;
+}
+

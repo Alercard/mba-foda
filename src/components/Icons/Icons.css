@@ -13,3 +13,24 @@
 .Icon-delete {
     color: rgb(148, 7, 7);
 }
+
+.Icon.Icon-efi .Icon-container {
+    border: solid 2px;
+    border-radius: 50%;
+    padding: 3px;
+    justify-content: center;
+    vertical-align: middle;
+    display: flex;
+    width: 1rem;
+}
+.Icon.Icon-efe .Icon-container {
+    border: solid 2px black;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    padding: 3px;
+    justify-content: center;
+    vertical-align: middle;
+    display: flex;
+    width: 1rem;
+}

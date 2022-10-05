@@ -1,22 +1,28 @@
+import { get } from 'immutable';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import './App.css';
+import Analyze from './components/Analyze';
 import Header from './components/Header';
 import { IconsSource } from './components/Icons';
 import Menu from './components/Menu';
 import Option from './components/Option';
-import { DATA_TYPE_GROUP } from './context/dataTypeFODA';
+import { DATA_TYPE_GROUP } from './core/analyzeConstants';
 
 function App() {
+  const [option, setOption] = useState('efi');
+
   const handleEFI = () => {
-    alert('EFI')
+    setOption('efi')
   }
   const handleEFE = () => {
-    alert('EFE')
+    setOption('efe')
   }
   const handleResultados = () => {
-    alert('Resultados')
+    setOption('results')
   }
   const handlePrint = () => {
-    alert('Imprimir')
+    setOption('print')
   }
   return (
     <div className="App">
@@ -27,7 +33,10 @@ function App() {
         <Option type={DATA_TYPE_GROUP.RESULTADOS} icon={IconsSource.chart} onClick={handleResultados} />
         <Option type={DATA_TYPE_GROUP.IMPRIMIR} icon={IconsSource.print} onClick={handlePrint} />
       </Menu>
-
+      {option === 'efi' ? <Analyze type={DATA_TYPE_GROUP.EFI} /> : null }
+      {option === 'efe' ? <Analyze type={DATA_TYPE_GROUP.EFE} /> : null }
+      {option === 'results' ? <span>Results En Construccion</span> : null }
+      {option === 'print' ? <span>Print En Construccion</span> : null }
     </div>
   );
 }

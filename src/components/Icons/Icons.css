@@ -3,3 +3,13 @@
     margin: 1px 3px;
     padding: 1px 3px;
 }
+
+.Icon.Icon-starts .w-6 {
+    min-width: 0.5rem;
+}
+.Icon-plus {
+    color: rgb(4, 83, 4);
+}
+.Icon-delete {
+    color: rgb(148, 7, 7);
+}

@@ -1,4 +1,4 @@
 export const initialState = {
     data: [],
-    activeProcess: ''
+    activeProcess: 'efi'
 }

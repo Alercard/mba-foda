@@ -1,15 +1,10 @@
-import { AMENAZA_DELETE, AMENAZA_SET, AMENAZA_UPDATE, DEBILIDAD_DELETE, DEBILIDAD_SET, DEBILIDAD_UPDATE, FORTALEZA_DELETE, FORTALEZA_SET, FORTALEZA_UPDATE, OPORTUNIDAD_DELETE, OPORTUNIDAD_SET, OPORTUNIDAD_UPDATE } from "../actions/type";
+import { AMENAZA_DELETE, AMENAZA_SET, AMENAZA_UPDATE, ANALYZE_LOAD, DEBILIDAD_DELETE, DEBILIDAD_SET, DEBILIDAD_UPDATE, FORTALEZA_DELETE, FORTALEZA_SET, FORTALEZA_UPDATE, OPORTUNIDAD_DELETE, OPORTUNIDAD_SET, OPORTUNIDAD_UPDATE } from "../actions/type";
+import { setData } from "../api";
 import { calculateAnalyze } from "../core/analyze";
 import { DATA_TYPE_FODA, MAX_HEIGHT_FODA } from "../core/analyzeConstants";
+import { initialState } from "../core/initialContext";
 
 const { fromJS, setIn, get } = require("immutable");
-
-const initialState = fromJS({
-    fortalezas: [],
-    debilidades: [],
-    oportunidades: [],
-    amenazas: []
-})
 
 const setAnalyze = (typeData, state, action) => {
     
@@ -30,8 +25,9 @@ const setAnalyze = (typeData, state, action) => {
     )
 
     const newFortalezasCalculated = calculateAnalyze(newFortalezas.toJS(), MAX_HEIGHT_FODA.FORTALEZAS)
-    
-    return setIn(state, [typeData], fromJS(newFortalezasCalculated));
+    const resp = setIn(state, [typeData], fromJS(newFortalezasCalculated));
+    setData(resp.toJS())
+    return resp;
 
 }
 
@@ -46,9 +42,15 @@ const updateAnalyze = (typeData, state, action) => {
         const current = get(state, typeData).toJS()
         current[ixToUpdate][action.payload.field] = action.payload.text*1
         const updatedFortalezas = calculateAnalyze(current, MAX_HEIGHT_FODA.FORTALEZAS)
-        return setIn(state, [typeData], fromJS(updatedFortalezas))
+        
+        const resp = setIn(state, [typeData], fromJS(updatedFortalezas))
+        setData(resp)
+        return resp
+
     }
-    return setIn(state, [typeData, ixToUpdate, action.payload.field], action.payload.text)
+    const resp = setIn(state, [typeData, ixToUpdate, action.payload.field], action.payload.text)
+    setData(resp)
+    return resp
 
 }
 
@@ -57,14 +59,22 @@ const deleteAnalyze = (typeData, state, action) => {
         (item) => (get(item, 'id') !== action.payload.id)
     )
     const fortalezasAfterDeleteCalculated = calculateAnalyze(fortalezasAfterDelete.toJS(), MAX_HEIGHT_FODA.FORTALEZAS)
-
-    return setIn(state, [typeData], fromJS(fortalezasAfterDeleteCalculated))
+    
+    const resp = setIn(state, [typeData], fromJS(fortalezasAfterDeleteCalculated))
+    setData(resp)
+    return resp
 
 }
 
 export const analisisReducer = (state = initialState, action) => {
 
     switch(action.type) {
+        case ANALYZE_LOAD: 
+            state = setIn(state, [DATA_TYPE_FODA.FORTALEZAS], fromJS(action.payload[DATA_TYPE_FODA.FORTALEZAS]))
+            state = setIn(state, [DATA_TYPE_FODA.DEBILIDADES], fromJS(action.payload[DATA_TYPE_FODA.DEBILIDADES]))
+            state = setIn(state, [DATA_TYPE_FODA.OPORTUNIDADES], fromJS(action.payload[DATA_TYPE_FODA.OPORTUNIDADES]))
+            return setIn(state, [DATA_TYPE_FODA.AMENAZAS], fromJS(action.payload[DATA_TYPE_FODA.AMENAZAS]))
+            
         // FORTALEZAS
         case FORTALEZA_SET: return setAnalyze(DATA_TYPE_FODA.FORTALEZAS, state, action)
 

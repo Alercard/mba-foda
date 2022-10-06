@@ -1,6 +1,8 @@
 import { get } from 'immutable';
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { loadAnalyze } from './actions';
+import { getData } from './api';
 import './App.css';
 import Analyze from './components/Analyze';
 import Header from './components/Header';
@@ -19,6 +21,15 @@ function App() {
   const total_fOdA = total_fOda + total_fodA
   const total_FODA = total_FoDa + total_fOdA
 
+  const dispatch = useDispatch()
+
+  useEffect(
+    () => {
+      const data = getData();
+      dispatch(loadAnalyze(data))  
+    }, []
+  )
+  
   const handleEFI = () => {
     setOption('efi')
   }

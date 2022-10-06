@@ -1,4 +1,8 @@
-export const initialState = {
-    data: [],
-    activeProcess: 'efi'
-}
+import { fromJS } from "immutable";
+
+export const initialState = fromJS({
+    fortalezas: [],
+    debilidades: [],
+    oportunidades: [],
+    amenazas: []
+})

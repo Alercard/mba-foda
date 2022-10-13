@@ -62,11 +62,13 @@ const Analyze = ({ type }) => {
 
     return (
         <div className={`Analyze ${type}`}>
-            <div className='container'>
+            <div className='container center'>
                 {logoHeader}
             </div>
             <div className='container up'>
-                <IconThumbUp />
+                <div className="container center">
+                    <IconThumbUp />
+                </div>
                 <AnalyzeTable
                     data={upData} 
                     handleAdd={handleAddUp} 
@@ -77,7 +79,9 @@ const Analyze = ({ type }) => {
                 />
             </div>
             <div className='container down'>
-                <IconThumbDown />
+                <div className="container center">
+                    <IconThumbDown />
+                </div>
                 <AnalyzeTable
                     data={downData} 
                     handleAdd={handleAddDown} 

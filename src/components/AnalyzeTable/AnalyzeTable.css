@@ -1,0 +1,29 @@
+table {
+    margin-bottom: 2.5rem;
+}
+.table.input {
+    min-width: 90%;
+}
+
+.table-td.input {
+    min-width: 90%;
+}
+
+table .table-td.description {
+    min-width: 20rem;
+}
+table .table-td.scale {
+    max-width: 90%;
+}
+[class*=IndicatorsContainer] {
+    max-height: 1.5rem;
+}
+[class*=control] {
+    min-height: 1.5rem !important;
+}
+/*
+div[id^="react-select"] {
+    z-index: 100;
+    background-color: blue;
+}
+*/

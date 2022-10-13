@@ -32,9 +32,9 @@ td.NoData .IconAction {
 .Analyze .container {
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin-top: 7px;
     margin-bottom: 7px;
+    overflow: auto;
 }
 
 .Analyze .container.up {

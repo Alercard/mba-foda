@@ -1,6 +1,15 @@
 .Header {
     display: grid;
+}
+
+.Header-data {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
+}
+
+.Header-title {
+    text-align: center;
+    width: 100%;
 }
 
 .Header-input {

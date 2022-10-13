@@ -9,6 +9,7 @@ import Header from './components/Header';
 import { IconsSource } from './components/Icons';
 import Menu from './components/Menu';
 import Option from './components/Option';
+import Result from './components/Result';
 import { DATA_TYPE_FODA, DATA_TYPE_GROUP } from './core/analyzeConstants';
 
 function App() {
@@ -53,7 +54,7 @@ function App() {
       </Menu>
       {option === 'efi' ? <Analyze type={DATA_TYPE_GROUP.EFI} /> : null }
       {option === 'efe' ? <Analyze type={DATA_TYPE_GROUP.EFE} /> : null }
-      {option === 'results' ? <span>Results En Construccion</span> : null }
+      {option === 'results' ? <Result totalEfi={total_FoDa} totalEfe={total_fOdA} /> : null }
       {option === 'print' ? <span>Print En Construccion</span> : null }
     </div>
   );

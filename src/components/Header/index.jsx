@@ -4,13 +4,18 @@ import { IconStore, IconUser } from "../Icons";
 const Header = () => {
     return (
         <div className="Header">
-            <div className="Header-input">
-                <IconUser />
-                <input type="text" placeholder="..." />
+            <div className='Header-title'>
+                <h1>FODA</h1>
             </div>
-            <div className="Header-input">
-                <IconStore />
-                <input type="text" placeholder="..." />
+            <div className="Header-data">
+                <div className="Header-input">
+                    <IconUser />
+                    <input type="text" placeholder="..." />
+                </div>
+                <div className="Header-input">
+                    <IconStore />
+                    <input type="text" placeholder="..." />
+                </div>
             </div>
         </div>
     );

@@ -1,0 +1,70 @@
+.Result {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+[class^="col"] {
+    border-right-width: 2px;
+    border-right-style: solid;
+}
+
+.Result .header-efi,
+.row-oportunidad,
+.row-amenaza {
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    display: flex;
+    flex-direction: row;
+    width: 17.5rem;
+}
+
+.Result .col-header-efe,
+.col-header-oportunidad,
+.col-header-amenaza {
+    width: 1.5rem;
+}
+.Result .col-header-fortaleza,
+.Result .col-header-debilidad,
+.col-FO,
+.col-DO,
+.col-FA,
+.col-DA {
+    width: 8rem;
+}
+
+.col-FO,
+.col-DO,
+.col-FA,
+.col-DA {
+    height: 8rem;
+    position: relative;
+}
+
+.col-FO {
+    background-color: rgb(41, 183, 41);
+}
+.col-DO {
+    background-color: rgb(255, 255, 54);
+}
+.col-FA {
+    background-color: rgb(242, 172, 44);
+}
+.col-DA {
+    background-color: rgb(187, 177, 177);
+}
+
+.col-header-oportunidad,
+.col-header-amenaza {
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
+}
+
+[class^="strategy"] {
+    background-color: rgb(159, 14, 14);
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    position: absolute;
+    right: 15px;
+}

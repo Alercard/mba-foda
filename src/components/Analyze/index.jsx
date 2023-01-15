@@ -1,7 +1,7 @@
 import './Analyze.css';
 import { get } from "immutable";
 import { useDispatch, useSelector } from "react-redux";
-import { DATA_TYPE_FODA, DATA_TYPE_GROUP, MAX_HEIGHT_FODA } from "../../core/analyzeConstants";
+import { DATA_TYPE_FODA, DATA_TYPE_GROUP, DATA_TYPE_TEXT, MAX_HEIGHT_FODA } from "../../core/analyzeConstants";
 import { IconEFE, IconEFI, IconStarsDownIntense, IconStarsDownMedium, IconStarsUpHigh, IconStarsUpMedium, IconThumbDown, IconThumbUp } from "../Icons";
 import { deleteAmenaza, deleteDebilidad, deleteFortaleza, deleteOportunidad, setAmenazas, setDebilidades, setFortalezas, setOportunidades, updateAmenaza, updateDebilidad, updateFortaleza, updateOportunidad } from '../../actions';
 import { generateNewRegister } from '../../core/analyze';
@@ -64,10 +64,12 @@ const Analyze = ({ type }) => {
         <div className={`Analyze ${type}`}>
             <div className='container center'>
                 {logoHeader}
+                <div>{DATA_TYPE_TEXT[type]}</div>
             </div>
             <div className='container up'>
                 <div className="container center">
                     <IconThumbUp />
+                    <div>{DATA_TYPE_TEXT[`${type}Up`]}</div>
                 </div>
                 <AnalyzeTable
                     data={upData} 
@@ -81,6 +83,7 @@ const Analyze = ({ type }) => {
             <div className='container down'>
                 <div className="container center">
                     <IconThumbDown />
+                    <div>{DATA_TYPE_TEXT[`${type}Down`]}</div>
                 </div>
                 <AnalyzeTable
                     data={downData} 

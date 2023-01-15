@@ -2,6 +2,7 @@
     display: grid;
     justify-items: center;
     border: solid 1px;
+    cursor: pointer;
 }
 
 .Option.interno {
@@ -15,4 +16,9 @@
 }
 .Option.imprimir {
     background-color: rgb(255, 205, 153);
+}
+.Option.active {
+    border-color: #328830;
+    color: #328830;
+    font-weight: bold;
 }

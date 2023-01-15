@@ -26,6 +26,7 @@ const AnalyzeTable = ({data, handleAdd, handleDelete, handleFieldUpdate, evaluat
                     <td className="NoData" colSpan={6}>
                         <IconAction onClick={() => handleAdd()} color={'rgb(4, 83, 4)'}>
                             <IconPlus />
+                            <div>Agregar</div>
                         </IconAction>
                     </td>
                 </tr>

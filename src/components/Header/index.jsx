@@ -10,11 +10,11 @@ const Header = () => {
             <div className="Header-data">
                 <div className="Header-input">
                     <IconUser />
-                    <input type="text" placeholder="..." />
+                    <input type="text" placeholder="Indique el Analista" />
                 </div>
                 <div className="Header-input">
                     <IconStore />
-                    <input type="text" placeholder="..." />
+                    <input type="text" placeholder="Indique el Cliente" />
                 </div>
             </div>
         </div>

@@ -9,6 +9,7 @@ import Header from './components/Header';
 import { IconsSource } from './components/Icons';
 import Menu from './components/Menu';
 import Option from './components/Option';
+import Print from './components/Print';
 import Result from './components/Result';
 import { DATA_TYPE_FODA, DATA_TYPE_GROUP } from './core/analyzeConstants';
 
@@ -28,7 +29,8 @@ function App() {
     () => {
       const data = getData();
       dispatch(loadAnalyze(data))  
-    }, []
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [ ]
   )
   
   const handleEFI = () => {
@@ -47,15 +49,15 @@ function App() {
     <div className="App">
       <Header />
       <Menu>
-        <Option type={DATA_TYPE_GROUP.EFI} icon={IconsSource.efi} onClick={handleEFI} total={total_FoDa} />
-        <Option type={DATA_TYPE_GROUP.EFE} icon={IconsSource.efe} onClick={handleEFE} total={total_fOdA} />
-        <Option type={DATA_TYPE_GROUP.RESULTADOS} icon={IconsSource.chart} onClick={handleResultados} total={total_FODA} />
-        <Option type={DATA_TYPE_GROUP.IMPRIMIR} icon={IconsSource.print} onClick={handlePrint} />
+        <Option type={DATA_TYPE_GROUP.EFI} icon={IconsSource.efi} onClick={handleEFI} total={total_FoDa} active={option === 'efi'}/>
+        <Option type={DATA_TYPE_GROUP.EFE} icon={IconsSource.efe} onClick={handleEFE} total={total_fOdA} active={option === 'efe'}/>
+        <Option type={DATA_TYPE_GROUP.RESULTADOS} icon={IconsSource.chart} onClick={handleResultados} total={total_FODA} active={option === 'results'}/>
+        <Option type={DATA_TYPE_GROUP.IMPRIMIR} icon={IconsSource.print} onClick={handlePrint} active={option === 'print'}/>
       </Menu>
       {option === 'efi' ? <Analyze type={DATA_TYPE_GROUP.EFI} /> : null }
       {option === 'efe' ? <Analyze type={DATA_TYPE_GROUP.EFE} /> : null }
       {option === 'results' ? <Result totalEfi={total_FoDa} totalEfe={total_fOdA} /> : null }
-      {option === 'print' ? <span>Print En Construccion</span> : null }
+      {option === 'print' ? <Print /> : null }
     </div>
   );
 }

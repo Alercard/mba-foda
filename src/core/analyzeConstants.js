@@ -4,7 +4,16 @@ export const DATA_TYPE_GROUP = {
     RESULTADOS: 'resultados',
     IMPRIMIR: 'imprimir'
 }
-
+export const DATA_TYPE_TEXT = {
+    interno: 'Analisis Interno',
+    externo: 'Analisis Externo',
+    resultados: 'Resultados',
+    imprimir: 'Imprimir',
+    internoUp: 'Fortalezas',
+    internoDown: 'Debilidades',
+    externoUp: 'Oportunidades',
+    externoDown: 'Amenazas'
+}
 export const DATA_TYPE_FODA = {
     FORTALEZAS: 'fortalezas',
     DEBILIDADES: 'debilidades',

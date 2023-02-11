@@ -1,3 +1,6 @@
+export const ANALIST_SET = 'ANALIST_SET';
+export const CLIENT_SET = 'CLIENT_SET';
+
 export const ANALYZE_LOAD = 'ANALYZE_LOAD';
 export const FORTALEZA_SET = 'FORTALEZA_SET';
 export const FORTALEZA_DELETE = 'FORTALEZA_DELETE';

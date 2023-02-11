@@ -4,5 +4,7 @@ export const initialState = fromJS({
     fortalezas: [],
     debilidades: [],
     oportunidades: [],
-    amenazas: []
+    amenazas: [],
+    analist: {},
+    client: {}
 })

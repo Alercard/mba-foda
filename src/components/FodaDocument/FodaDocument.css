@@ -1,3 +1,10 @@
+@media print {
+  header, footer, nav, aside,
+  .Header, .Menu {
+    display: none;
+  }
+}
+/*
 @page {
     size: A4 portrait;
 }
@@ -9,22 +16,23 @@
     margin-left: 4cm;
 }
 @page :blank {
-    @top-center { content: "This page is intentionally left blank." }
-  }
+  @top-center { content: "This page is intentionally left blank."; color: black; }
+}
 
-  @page:right{ 
-    @bottom-left {
-      margin: 10pt 0 30pt 0;
-      border-top: .25pt solid #666;
-      content: "My book";
-      font-size: 9pt;
-      color: #333;
-    }
+@page:right{ 
+  @bottom-left {
+    margin: 10pt 0 30pt 0;
+    border-top: .25pt solid #666;
+    content: "My book";
+    font-size: 9pt;
+    color: #333;
   }
+}
 
-  @page:right{
-    @bottom-right {
-      content: counter(page);
-    }
+@page:right{
+  @bottom-right {
+    content: counter(page);
   }
-  
+}
+
+*/

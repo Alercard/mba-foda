@@ -1,7 +1,7 @@
-import { AMENAZA_DELETE, AMENAZA_SET, AMENAZA_UPDATE, ANALYZE_LOAD, DEBILIDAD_DELETE, DEBILIDAD_SET, DEBILIDAD_UPDATE, FORTALEZA_DELETE, FORTALEZA_SET, FORTALEZA_UPDATE, OPORTUNIDAD_DELETE, OPORTUNIDAD_SET, OPORTUNIDAD_UPDATE } from "../actions/type";
+import { AMENAZA_DELETE, AMENAZA_SET, AMENAZA_UPDATE, ANALIST_SET, ANALYZE_LOAD, CLIENT_SET, DEBILIDAD_DELETE, DEBILIDAD_SET, DEBILIDAD_UPDATE, FORTALEZA_DELETE, FORTALEZA_SET, FORTALEZA_UPDATE, OPORTUNIDAD_DELETE, OPORTUNIDAD_SET, OPORTUNIDAD_UPDATE } from "../actions/type";
 import { setData } from "../api";
 import { calculateAnalyze } from "../core/analyze";
-import { DATA_TYPE_FODA, MAX_HEIGHT_FODA } from "../core/analyzeConstants";
+import { DATA_TYPE_FODA, DATA_TYPE_HEADER, MAX_HEIGHT_FODA } from "../core/analyzeConstants";
 import { initialState } from "../core/initialContext";
 
 const { fromJS, setIn, get } = require("immutable");
@@ -29,6 +29,13 @@ const setAnalyze = (typeData, state, action) => {
     setData(resp.toJS())
     return resp;
 
+}
+
+const setHeaderData = (typeData, state, action) => {
+    console.log('setHeaderData: ', typeData, state, action)
+    const resp = setIn(state, [typeData, 'name'], fromJS(action.payload.name))
+    setData(resp.toJS())
+    return resp
 }
 
 const updateAnalyze = (typeData, state, action) => {
@@ -70,11 +77,18 @@ export const analisisReducer = (state = initialState, action) => {
 
     switch(action.type) {
         case ANALYZE_LOAD: 
+            state = setIn(state, [DATA_TYPE_HEADER.ANALIST], fromJS(action.payload[DATA_TYPE_HEADER.ANALIST]))
+            state = setIn(state, [DATA_TYPE_HEADER.CLIENT], fromJS(action.payload[DATA_TYPE_HEADER.CLIENT]))
             state = setIn(state, [DATA_TYPE_FODA.FORTALEZAS], fromJS(action.payload[DATA_TYPE_FODA.FORTALEZAS]))
             state = setIn(state, [DATA_TYPE_FODA.DEBILIDADES], fromJS(action.payload[DATA_TYPE_FODA.DEBILIDADES]))
             state = setIn(state, [DATA_TYPE_FODA.OPORTUNIDADES], fromJS(action.payload[DATA_TYPE_FODA.OPORTUNIDADES]))
+            console.log(state);
             return setIn(state, [DATA_TYPE_FODA.AMENAZAS], fromJS(action.payload[DATA_TYPE_FODA.AMENAZAS]))
             
+        // HEADER
+        case ANALIST_SET: return setHeaderData(DATA_TYPE_HEADER.ANALIST, state, action)
+        case CLIENT_SET: return setHeaderData(DATA_TYPE_HEADER.CLIENT, state, action)
+        
         // FORTALEZAS
         case FORTALEZA_SET: return setAnalyze(DATA_TYPE_FODA.FORTALEZAS, state, action)
 

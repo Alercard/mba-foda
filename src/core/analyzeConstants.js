@@ -21,6 +21,11 @@ export const DATA_TYPE_FODA = {
     AMENAZAS: 'amenazas'
 }
 
+export const DATA_TYPE_HEADER = {
+    ANALIST: 'analist',
+    CLIENT: 'client'
+}
+
 export const MAX_HEIGHT_FODA = {
     FORTALEZAS: 0.5,
     DEBILIDADES: 0.5,

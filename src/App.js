@@ -15,14 +15,6 @@ import { DATA_TYPE_FODA, DATA_TYPE_GROUP } from './core/analyzeConstants';
 
 function App() {
   const [option, setOption] = useState('efi');
-  const total_Foda = useSelector(state => get(state, DATA_TYPE_FODA.FORTALEZAS)).toJS().reduce((acum, item) => acum+item.value, 0);
-  const total_fOda = useSelector(state => get(state, DATA_TYPE_FODA.OPORTUNIDADES)).toJS().reduce((acum, item) => acum+item.value, 0);
-  const total_foDa = useSelector(state => get(state, DATA_TYPE_FODA.DEBILIDADES)).toJS().reduce((acum, item) => acum+item.value, 0);
-  const total_fodA = useSelector(state => get(state, DATA_TYPE_FODA.AMENAZAS)).toJS().reduce((acum, item) => acum+item.value, 0);
-  const total_FoDa = total_Foda + total_foDa
-  const total_fOdA = total_fOda + total_fodA
-  const total_FODA = total_FoDa + total_fOdA
-
   const dispatch = useDispatch()
 
   useEffect(
@@ -33,6 +25,14 @@ function App() {
     }, [ ]
   )
   
+  const total_Foda = useSelector(state => get(state, DATA_TYPE_FODA.FORTALEZAS)).toJS().reduce((acum, item) => acum+item.value, 0);
+  const total_fOda = useSelector(state => get(state, DATA_TYPE_FODA.OPORTUNIDADES)).toJS().reduce((acum, item) => acum+item.value, 0);
+  const total_foDa = useSelector(state => get(state, DATA_TYPE_FODA.DEBILIDADES)).toJS().reduce((acum, item) => acum+item.value, 0);
+  const total_fodA = useSelector(state => get(state, DATA_TYPE_FODA.AMENAZAS)).toJS().reduce((acum, item) => acum+item.value, 0);
+  const total_FoDa = total_Foda + total_foDa
+  const total_fOdA = total_fOda + total_fodA
+  const total_FODA = total_FoDa + total_fOdA
+
   const handleEFI = () => {
     setOption('efi')
   }

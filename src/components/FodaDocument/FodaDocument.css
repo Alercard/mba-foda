@@ -1,7 +1,51 @@
+.Print-header {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+}
+.Print-block {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1;
+}
+table.results {
+  border: solid 1px black;
+  border-spacing: 0;
+  margin-bottom: 2rem;
+}
+table.results th.topic {
+  min-width: 50%;
+}
+table.results thead tr th,
+table.results tbody tr td {
+  border: solid 1px black;
+}
+table.results thead tr th{
+  color: black;
+}
+table.results tbody tr td {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+table.results tbody tr td.description {
+  text-align: left;
+}
+table.results tbody tr td.value {
+  text-align: right;
+}
+button.print {
+  padding: 1rem;
+  margin: 1rem;
+}
 @media print {
+  @page { margin: 0; }
   header, footer, nav, aside,
-  .Header, .Menu {
+  .Header, .Menu, .NoPrint {
     display: none;
+  }
+  .Print {
+    print-color-adjust: exact;
+    margin: 1.5rem;
   }
 }
 /*

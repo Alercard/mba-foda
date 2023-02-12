@@ -5,6 +5,9 @@
     cursor: pointer;
 }
 
+.Option:hover {
+    font-weight: 700;
+}
 .Option.interno {
     background-color: rgb(255, 254, 220);
 }
